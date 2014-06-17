@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'rubygems'
 
+set :public_folder, 'views'
 get '/' do
-	"Hello world, it's #{Time.now} at the server!"
+	send_file 'views/main.html'
 end
