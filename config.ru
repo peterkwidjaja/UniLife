@@ -1,2 +1,2 @@
-require 'app'
-run UniLife.new
+require './app'
+run Sinatra::Application
