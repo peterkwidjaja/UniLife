@@ -1,0 +1,39 @@
+/*
+color scheme adopted:
+Dark Blue: #024873
+Light Blue: #5B9ED9
+Orange: #F28705
+White: #F0F0F2
+Grey: #565659
+*/
+
+body {
+	background: #F0F0F2;
+}
+.navbar{
+	background-color: #024873;
+}
+.navbar-nav>li>a{
+	color: #000000;
+}
+.navbar-collapse .navbar-text,.navbar-collapse .navbar-nav li a {
+	color: #F28705;
+}
+.navbar-header .navbar-brand {
+	color: #F28705;
+	
+}
+.nav-container {
+	margin-left: 50px;
+	margin-right: 50px;
+	width: auto;
+}
+#home{
+	background-color: #565659;
+	color: #FFFFFF;
+	margin-top:80px;
+}
+#tech{
+	background-color: #5B9ED9;
+	color: #FFFFFF
+}
