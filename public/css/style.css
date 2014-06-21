@@ -37,3 +37,13 @@ body {
 	background-color: #5B9ED9;
 	color: #FFFFFF
 }
+
+.tech-logo img{
+	max-height: 80px;
+	width: auto;
+	background-color:#FFFFFF;
+}
+.tech-row{
+	padding-top: 15px;
+	margin: auto;
+}
