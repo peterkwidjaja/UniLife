@@ -52,4 +52,4 @@ Log Spreadsheet:
 
 
 ###Website (still under construction for the time being)
-[UniLife](unilife.herokuapp.com)
+[UniLife](http://unilife.herokuapp.com)
