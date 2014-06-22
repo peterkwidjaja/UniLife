@@ -1,0 +1,19 @@
+#home{
+	background-color: #565659;
+	color: #FFFFFF;
+	margin-top:80px;
+}
+#tech{
+	background-color: #5B9ED9;
+	color: #FFFFFF
+}
+
+.tech-logo img{
+	max-height: 80px;
+	width: auto;
+	background-color: #FFFFFF;
+}
+.tech-row{
+	padding-top: 15px;
+	margin: auto;
+}
