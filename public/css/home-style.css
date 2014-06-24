@@ -3,6 +3,13 @@
 	color: #FFFFFF;
 	margin-top:80px;
 }
+#started-button {
+	background-color: #F28705;
+	border-color: #F28705;
+	color: #FFFFFF;
+	font-size: 20px;
+	margin-top: 10px;
+}
 #tech{
 	background-color: #5B9ED9;
 	color: #FFFFFF
