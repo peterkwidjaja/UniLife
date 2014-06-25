@@ -11,6 +11,7 @@ class Modules
 		@workload = workload
 		@preclusion = preclusion
 		@prereq = prereq
+	end
 end
 
 get '/' do
