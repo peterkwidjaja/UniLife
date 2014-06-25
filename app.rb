@@ -11,7 +11,6 @@ class Modules
 		@workload = workload
 		@preclusion = preclusion
 		@prereq = prereq
-
 end
 
 get '/' do
@@ -22,7 +21,4 @@ end
 get '/modules' do
 	json = File.read('public/moduleList.json')
 	result = JSON.parse(json)
-	result.each do |key, value|
-		puts key
-	end
 end
