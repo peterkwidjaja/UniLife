@@ -2,7 +2,7 @@ require 'sinatra'
 require 'rubygems'
 require 'json'
 
-class modules
+class Modules
 	def initialize(code, title, desc, credit, workload, preclusion, prereq)
 		@code = code
 		@title = title
