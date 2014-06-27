@@ -21,5 +21,8 @@ end
 
 get '/modules' do
 	json = File.read('public/moduleList.json')
-	result = JSON.parse(json)
+	@result = JSON.parse(json)
+	@stylepage="css/module-style.css"
+	erb :module
+	
 end
