@@ -1,0 +1,17 @@
+#details {
+	background-color: #565659;
+	color: #FFFFFF;
+	margin-top:80px;
+}
+
+h2 {
+	font-size: 24px;
+	color: #F28705;
+}
+.jumbotron p{
+	font-size: 16px;
+}
+
+#desc{
+	text-align: justify;
+}
