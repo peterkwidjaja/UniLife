@@ -14,8 +14,6 @@ class Modules
 	end
 end
 
-
-
 get '/' do
 	@stylepage="css/home-style.css"
 	erb :home
@@ -38,6 +36,14 @@ get '/mods/:mod' do
 
 	erb :mod_detail
 end
+
+get '/plan' do
+	@stylepage = "/css/plan-style.css"
+
+
+	erb :plan
+end
+
 
 not_found do
 	status 404
