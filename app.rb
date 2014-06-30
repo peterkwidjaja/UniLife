@@ -37,5 +37,9 @@ get '/mods/:mod' do
 	@details = result.find do |x| x["ModuleCode"]==@mod end
 
 	erb :mod_detail
+end
 
-end	
+not_found do
+	status 404
+	erb :not_found
+end
