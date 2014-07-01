@@ -10,7 +10,7 @@ Grey: #565659
 body {
 	background: #F0F0F2;
 	background-image: url('/images/backgrd.png');
-	
+	padding-top: 85px;
 }
 .navbar{
 	background-color: #024873;

@@ -1,38 +1,40 @@
-<div class="jumbotron" id="mods">
-	<div class="container">
-		<h2>Modules</h2>
-		<p>Click on the module code to find out more about the module</p>
-		<center>
-			<table class = "table table-condensed table-bordered">
-				<tr style="background-color: #024873;">
-					<th>No.</th>
-					<th>Module Code</th>
-					<th>Module Name</th>
-				</tr>
-				<% count = 0 %>
-				<% @result.each do |code, name| %>
-				<% count += 1 %>
-				<% if count%2==1 %>
-				<tr style="background-color: #5B9ED9;">
-				<% else %>
-				<tr>
-				<% end %>
-					<td><%= count %></td>
-					<td><a href="javascript:popup('/mods/<%= code %>')"><%= code %></a></td>
-					<td><%= name %></td>
-				</tr>
-				<% end %>
+<div class="container">
+	<div class="jumbotron" id="mods">
+		<div class="container">
+			<h2>Modules</h2>
+			<p>Click on the module code to find out more about the module</p>
+			<center>
+				<table class = "table table-condensed table-bordered">
+					<tr style="background-color: #024873;">
+						<th>No.</th>
+						<th>Module Code</th>
+						<th>Module Name</th>
+					</tr>
+					<% count = 0 %>
+					<% @result.each do |code, name| %>
+					<% count += 1 %>
+					<% if count%2==1 %>
+					<tr style="background-color: #5B9ED9;">
+						<% else %>
+						<tr>
+							<% end %>
+							<td><%= count %></td>
+							<td><a href="javascript:popup('/mods/<%= code %>')"><%= code %></a></td>
+							<td><%= name %></td>
+						</tr>
+						<% end %>
 
-			 	<!-- script for new popup window -->
-				<script language="javascript">
-					function popup(url) {
-						var w = 700, h = 600;
-						var left = (screen.width) ? (screen.width-w)/2 : 0;
-						var top = (screen.height) ? (screen.height-h)/2 : 0;
-						window.open(url, "_blank", "width="+w+",height="+h+",left="+left+",top="+top+",scrollbars=yes");
-					}		
-				</script>
-			</table>
-		</center>
+						<!-- script for new popup window -->
+						<script language="javascript">
+						function popup(url) {
+							var w = 700, h = 600;
+							var left = (screen.width) ? (screen.width-w)/2 : 0;
+							var top = (screen.height) ? (screen.height-h)/2 : 0;
+							window.open(url, "_blank", "width="+w+",height="+h+",left="+left+",top="+top+",scrollbars=yes");
+						}		
+						</script>
+					</table>
+				</center>
+			</div>
+		</div>
 	</div>
-</div>
