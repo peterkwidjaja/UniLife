@@ -1,9 +1,6 @@
 #navigation {
-	margin-top: 75px;
+	margin-top: 175px;
 	margin-bottom: 20px;
-}
-#sem1 {
-	margin-top: 40px;
 }
 .btn-primary {
 	background-color: #293B47;
@@ -22,4 +19,24 @@
 .jumbotron:nth-child(even){
 	background-color: #CBFF48;
 	color: #565659;
+}
+#dropdown1 {
+	background-color: #565659;
+	margin-left: 10px;
+	color: #F28705;
+}
+.dropdown-menu {
+	background-color: #565659;
+	width: auto;
+	
+}
+
+.item{
+	padding-bottom: 30px;
+}
+.carousel-caption{
+	color: #000000;
+}
+li>a[role="menuitem"] {
+	color: #F28705;
 }

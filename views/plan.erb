@@ -1,65 +1,110 @@
+<!--
 <div class="navbar-fixed-top" id="navigation">
-	<center>
-		<a href="#sem1" class="btn btn-rounded btn-primary"><b>SEM 1</b></a>
-		<a href="#sem2" class="btn btn-rounded btn-primary"><b>SEM 2</b></a>
-		<a href="#sem3" class="btn btn-rounded btn-primary"><b>SEM 3</b></a>
-		<a href="#sem4" class="btn btn-rounded btn-primary"><b>SEM 4</b></a>
-		<a href="#sem5" class="btn btn-rounded btn-primary"><b>SEM 5</b></a>
-		<a href="#sem6" class="btn btn-rounded btn-primary"><b>SEM 6</b></a>
-		<a href="#sem7" class="btn btn-rounded btn-primary"><b>SEM 7</b></a>
-		<a href="#sem8" class="btn btn-rounded btn-primary"><b>SEM 8</b></a>
-	</center>
+	<left>
+		<div class="dropdown">
+			<button class="btn btn-rounded dropdown-toggle" id="dropdown1" type="button" data-toggle="dropdown">
+				Semester
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdown1">
+				<li role="presentation"><a href="#sem1" role="menuitem"><b>SEM 1</b></a></li>
+				<li role="presentation"><a href="#sem2" role="menuitem"><b>SEM 2</b></a></li>
+				<li role="presentation"><a href="#sem3" role="menuitem"><b>SEM 3</b></a></li>
+				<li role="presentation"><a href="#sem4" role="menuitem"><b>SEM 4</b></a></li>
+				<li role="presentation"><a href="#sem5" role="menuitem"><b>SEM 5</b></a></li>
+				<li role="presentation"><a href="#sem6" role="menuitem"><b>SEM 6</b></a></li>
+				<li role="presentation"><a href="#sem7" role="menuitem"><b>SEM 7</b></a></li>
+				<li role="presentation"><a href="#sem8" role="menuitem"><b>SEM 8</b></a></li>
+			</ul>
+		</div>
+	
+	</left>
 </div>
+-->
+<div class="carousel slide" id="carousel-year" data-interval="false">
+	<ol class="carousel-indicators">
+		<li data-target="#carousel-year" data-slide-to="0"></li>
+		<li data-target="#carousel-year" data-slide-to="1"></li>
+		<li data-target="#carousel-year" data-slide-to="2"></li>
+		<li data-target="#carousel-year" data-slide-to="3"></li>
+	</ol>
+	<div class="carousel-inner">
+		<div class="item active">
 
-<div class="jumbotron" id="sem1">
-	<div class="container">
-		<h2>Semester 1</h2>
+			<div class="container">
+				<h1>Freshman Year</h1>
+				<div class="jumbotron" id="sem1">
+					<div class="container">
+						<h2>Semester 1</h2>
+						<p><center>Total MC: 0</center></p>
+					</div>
+				</div>
+
+				<div class="jumbotron" id="sem2">
+					<div class="container">
+						<h2>Semester 2</h2>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-caption">Year 1</div>
+		</div>
+		<div class="item">
+			<div class="container">
+				<h1>Year 2</h1>
+				<div class="jumbotron" id="sem3">
+					<div class="container">
+						<h2>Semester 3</h2>
+					</div>
+				</div>
+				<div class="jumbotron" id="sem4">
+					<div class="container">
+						<h2>Semester 4</h2>
+					</div>
+				</div>
+
+			</div>
+			<div class="carousel-caption">Year 2</div>
+		</div>
+		<div class="item">
+			<div class="container">
+				<h1>Year 3</h1>
+				<div class="jumbotron" id="sem5">
+					<div class="container">
+						<h2>Semester 5</h2>
+					</div>
+				</div>
+				<div class="jumbotron" id="sem6">
+					<div class="container">
+						<h2>Semester 6</h2>
+					</div>
+				</div>
+
+			</div>
+			<div class="carousel-caption">Year 3</div>
+		</div>
+		<div class="item">
+			<div class="container">
+				<h1>Year 4</h1>
+				<div class="jumbotron" id="sem7">
+					<div class="container">
+						<h2>Semester 7</h2>
+					</div>
+				</div>
+				<div class="jumbotron" id="sem8">
+					<div class="container">
+						<h2>Semester 8</h2>
+					</div>
+				</div>
+
+			</div>
+			<div class="carousel-caption">Year 4</div>
+		</div>
 	</div>
+	<a class="left carousel-control" href="#carousel-year" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+	</a>
+	<a href="#carousel-year" class="right carousel-control" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+	</a>
 </div>
-
-<div class="jumbotron" id="sem2">
-	<div class="container">
-		<h2>Semester 2</h2>
-	</div>
-</div>
-
-<div class="jumbotron" id="sem3">
-	<div class="container">
-		<h2>Semester 3</h2>
-	</div>
-</div>
-
-<div class="jumbotron" id="sem4">
-	<div class="container">
-		<h2>Semester 4</h2>
-	</div>
-</div>
-
-<div class="jumbotron" id="sem5">
-	<div class="container">
-		<h2>Semester 5</h2>
-	</div>
-</div>
-
-<div class="jumbotron" id="sem6">
-	<div class="container">
-		<h2>Semester 6</h2>
-	</div>
-</div>
-
-<div class="jumbotron" id="sem7">
-	<div class="container">
-		<h2>Semester 7</h2>
-	</div>
-</div>
-
-<div class="jumbotron" id="sem8">
-	<div class="container">
-		<h2>Semester 8</h2>
-	</div>
-</div>
-
-
-
-
 
