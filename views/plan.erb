@@ -1,36 +1,4 @@
-<!-- AUTOCOMPLETE JAVASCRIPT
-<script>
-$(function() {
-    var availableMods = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  });
-</script>
--->
+
 <div class="carousel slide" id="carousel-year" data-interval="false">
 	<ol class="carousel-indicators">
 		<li data-target="#carousel-year" data-slide-to="0"></li>
@@ -45,12 +13,14 @@ $(function() {
 				<div class="jumbotron" id="sem1">
 					<div class="container">
 						<h2>Semester 1</h2>
-						<form role="form">
-							<div class="form-group">
-								<label for="module-sem1">Enter Module Code:</label>
-								<input type="text" class="form-control" placeholder="Add module to this sem">
-							</div>
-						</form>
+						<center>
+							<form role="form">
+								<div class="form-group">
+									<label for="module-sem1">Enter Module Code:</label>
+									<input type="text" class="form-control module-input" placeholder="Add module to this sem" autocomplete="off" id="test1">	
+								</div>
+							</form>
+						</center>
 						<p><center>Total MC: 0</center></p>
 					</div>
 				</div>
@@ -122,8 +92,5 @@ $(function() {
 		<span class="glyphicon glyphicon-chevron-right"></span>
 	</a>
 </div>
-<script>
-	$('#add-sem1').click(function () {
-		
-	}
-</script>
+
+

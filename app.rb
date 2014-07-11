@@ -2,17 +2,10 @@ require 'sinatra'
 require 'rubygems'
 require 'json'
 
-class Modules
-	def initialize(code, title, desc, credit, workload, preclusion, prereq)
-		@code = code
-		@title = title
-		@description = desc
-		@credit = credit
-		@workload = workload
-		@preclusion = preclusion
-		@prereq = prereq
-	end
-end
+modList=File.read('public/moduleList.json')
+resultModList = JSON.parse(modList)
+modDetails = File.read('public/moduleDetails.json')
+resultModDetails = JSON.parse(modDetails)
 
 get '/' do
 	@stylepage="css/home-style.css"
@@ -20,8 +13,7 @@ get '/' do
 end
 
 get '/modules' do
-	json = File.read('public/moduleList.json')
-	@result = JSON.parse(json)
+	@result = resultModList
 	@stylepage="/css/module-style.css"
 	erb :module
 	
@@ -30,17 +22,15 @@ end
 get '/mods/:mod' do
 	@stylepage = "/css/modDetails-style.css"
 	@mod = params[:mod]
-	json = File.read('public/moduleDetails.json')
-	result = JSON.parse(json)
-	@details = result.find do |x| x["ModuleCode"]==@mod end
+	@details = resultModDetails.find do |x| x["ModuleCode"]==@mod end
 
 	erb :mod_detail
 end
 
 get '/plan' do
+	@moduleCodes = resultModList.keys
 	@stylepage = "/css/plan-style.css"
-
-
+	@javascript = '<script src="/js/typeahead.bundle.js"></script>' + "\n" + '<script src="/js/plan.js"></script>'
 	erb :plan
 end
 
