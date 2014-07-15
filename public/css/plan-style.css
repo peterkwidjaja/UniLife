@@ -71,6 +71,7 @@ li>a[role="menuitem"] {
   color: #333333;
   white-space: nowrap;
   margin-bottom: 5px;
+  text-align: left;
 }
 .tt-suggestion > p:hover,
 .tt-suggestion > p:focus,

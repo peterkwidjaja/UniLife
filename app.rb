@@ -27,6 +27,12 @@ get '/mods/:mod' do
 	erb :mod_detail
 end
 
+get '/mod/:mods' do
+	mod = params[:mods]
+	details = resultModDetails.find do |x| x["ModuleCode"]==mod end
+	details.to_json
+end
+
 get '/plan' do
 	@moduleCodes = resultModList.keys
 	@stylepage = "/css/plan-style.css"
@@ -34,8 +40,17 @@ get '/plan' do
 	erb :plan
 end
 
-
 not_found do
 	status 404
 	erb :not_found
 end
+
+#
+#helper do
+#	def getDetails(moduleCode)
+#		@details = resultModDetails.find do |x|
+#			x["ModuleCode"]==moduleCode
+#		end
+#		return @details
+#	end
+#end
