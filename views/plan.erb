@@ -14,14 +14,26 @@
 					<div class="container">
 						<h2>Semester 1</h2>
 						<center>
-							<form role="form">
+							<form role="form" id="modules1">
 								<div class="form-group">
 									<label for="module-sem1">Enter Module Code:</label>
 									<input type="text" class="form-control module-input" placeholder="Add module to this sem" autocomplete="off" id="test1">	
 								</div>
 							</form>
 						</center>
-						<p><center>Total MC: 0</center></p>
+						<div id="chosen-modules-1">
+							<table class="table sem-table" id="sem1-table">
+								<thead>
+									<tr>
+										<th>Module Code</th>
+										<th>Module Name</th>
+									</tr>
+								</thead>
+								<tbody id="content">
+								</tbody>
+							</table>
+						</div>
+						<center><p>Total MC: <span id="total-credit1">0</span></p></center>
 					</div>
 				</div>
 
