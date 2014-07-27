@@ -17,7 +17,7 @@ $(document).ready(function() {
 	});
 	engine.initialize(true);
 	engine.clearPrefetchCache();
-	$('#test1').typeahead({
+	$('.module-input').typeahead({
 	 minLength: 1,
 	 highlight: true
  },
@@ -27,15 +27,20 @@ $(document).ready(function() {
 	 source: engine.ttAdapter()
  });
 
-	$('#test1').keydown(function(event){
-		var module = $('#test1').val();
-
+	$('.module-input').keydown(function(event){
 		if(event.keyCode==13){
+			event.preventDefault();
+			var module = $(this).val();
+			var sem = this.id;
+			sem = sem.substring(sem.length - 1);
 			//enter validation of input
 			module = module.substring(0,module.indexOf(' '));
 			//alert(module);
-			addModules(1, module);
-			this.value = "";
+			addModules(parseInt(sem), module);
+			$(this).val('');
 		}
+	});
+	$('.module-input').blur(function(){
+		$(this).val('');
 	});
 });

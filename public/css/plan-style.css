@@ -8,6 +8,10 @@
 	border: none;
 	margin-top: 3px;
 }
+.container.carousel-container {
+  padding-left: 5px;
+  padding-right: 5px;
+}
 .jumbotron:nth-child(odd){
 	background-color: #00ADA9;
 	color: #FFFFFF;
@@ -20,6 +24,7 @@
 	background-color: #CBFF48;
 	color: #565659;
 }
+
 #dropdown1 {
 	background-color: #565659;
 	margin-left: 10px;
@@ -28,7 +33,6 @@
 .dropdown-menu {
 	background-color: #565659;
 	width: auto;
-	
 }
 .item{
 	padding-bottom: 50px;
@@ -39,8 +43,12 @@
 li>a[role="menuitem"] {
 	color: #F28705;
 }
-.form-control.module-input {
-	width: 500px;
+.module-input {
+  width: 100%;
+}
+.twitter-typeahead{
+  width: 100%;
+  max-width: 500px;
 }
 .tt-dropdown-menu {
   position: absolute;

@@ -7,95 +7,50 @@
 		<li data-target="#carousel-year" data-slide-to="3"></li>
 	</ol>
 	<div class="carousel-inner">
+		<% count=0 %>
+		<% for i in 1..4%>
+		<% if i==1 %>
 		<div class="item active">
+		<% else %>
+		<div class="item">
+		<% end %>
 			<div class="container">
-				<h1>Freshman Year</h1>
-				<div class="jumbotron" id="sem1">
-					<div class="container">
-						<h2>Semester 1</h2>
-						<center>
-							<form role="form" id="modules1">
-								<div class="form-group">
-									<label for="module-sem1">Enter Module Code:</label>
-									<input type="text" class="form-control module-input" placeholder="Add module to this sem" autocomplete="off" id="test1">	
-								</div>
-							</form>
-						</center>
-						<div id="chosen-modules-1">
-							<table class="table sem-table" id="sem1-table">
+				<center><h1>Year <%= i %></h1></center>
+				<div class="row">
+					<% 2.times do |n| %>
+					<% count+=1 %>
+					<div class="jumbotron col-md-6" id="sem<%= count %>">
+						<div class="container">
+							<h2>Semester <%= count %></h2>
+							<center>
+								<form role="form" id="modules<%= count %>">
+									<div class="form-group">
+										<label for="module-sem<%= count %>">Enter Module Code:</label>
+										<div>
+											<input type="text" class="form-control module-input" placeholder="Add module to this sem" autocomplete="off" id="input-sem<%= count %>">
+										</div>	
+									</div>
+								</form>
+							</center>
+							<table class="table sem-table" id="sem<%= count %>-table">
 								<thead>
 									<tr>
 										<th>Module Code</th>
 										<th>Module Name</th>
 									</tr>
 								</thead>
-								<tbody id="content">
+								<tbody id="content-sem<%= count %>">
 								</tbody>
 							</table>
+							<center><p>Total MC: <span id="total-credit<%= count%>">0</span></p></center>
 						</div>
-						<center><p>Total MC: <span id="total-credit1">0</span></p></center>
 					</div>
+					<% end %>
 				</div>
-
-				<div class="jumbotron" id="sem2">
-					<div class="container">
-						<h2>Semester 2</h2>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-caption">Year 1</div>
+				<div class="carousel-caption">Year <%= i %></div>
+			</div>	
 		</div>
-		<div class="item">
-			<div class="container">
-				<h1>Year 2</h1>
-				<div class="jumbotron" id="sem3">
-					<div class="container">
-						<h2>Semester 3</h2>
-					</div>
-				</div>
-				<div class="jumbotron" id="sem4">
-					<div class="container">
-						<h2>Semester 4</h2>
-					</div>
-				</div>
-
-			</div>
-			<div class="carousel-caption">Year 2</div>
-		</div>
-		<div class="item">
-			<div class="container">
-				<h1>Year 3</h1>
-				<div class="jumbotron" id="sem5">
-					<div class="container">
-						<h2>Semester 5</h2>
-					</div>
-				</div>
-				<div class="jumbotron" id="sem6">
-					<div class="container">
-						<h2>Semester 6</h2>
-					</div>
-				</div>
-
-			</div>
-			<div class="carousel-caption">Year 3</div>
-		</div>
-		<div class="item">
-			<div class="container">
-				<h1>Year 4</h1>
-				<div class="jumbotron" id="sem7">
-					<div class="container">
-						<h2>Semester 7</h2>
-					</div>
-				</div>
-				<div class="jumbotron" id="sem8">
-					<div class="container">
-						<h2>Semester 8</h2>
-					</div>
-				</div>
-
-			</div>
-			<div class="carousel-caption">Year 4</div>
-		</div>
+		<% end %>
 	</div>
 	<a class="left carousel-control" href="#carousel-year" role="button" data-slide="prev">
 		<span class="glyphicon glyphicon-chevron-left"></span>
