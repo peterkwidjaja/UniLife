@@ -43,4 +43,13 @@ $(document).ready(function() {
 	$('.module-input').blur(function(){
 		$(this).val('');
 	});
+
+	$('.sem-table').on('click', '.remove-button', function(){
+		var test = $(this).closest('tr');
+		var moduleCode = $(test).find('td:eq(0)').html();
+		var sem = $(this).closest('tbody').attr('id');
+		sem = sem.substring(sem.length-1);
+		deleteModule(parseInt(sem), moduleCode);
+		$(this).closest('tr').remove();
+	});
 });
