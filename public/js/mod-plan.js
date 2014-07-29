@@ -17,12 +17,10 @@ ModuleSemester.prototype.delMod = function(mod){
 	this.totalMC -= parseInt(this.mods[index]["ModuleCredit"]);
 	this.mods.splice(index,1);
 }
-
 var choice = [];
 for (i=0; i<8; i++){
 	choice[i] = new ModuleSemester();
 }
-
 function addModules(sem, module){
 	//lert(module);
 	$.get("/mod/"+ module, function(data){
@@ -35,4 +33,20 @@ function addModules(sem, module){
 function deleteModule(sem, module){
 	choice[sem-1].delMod(module);
 	$('#total-credit'+(sem.toString())).html(choice[sem-1].totalMC.toString());
+}
+function save(){
+	var sem = [];
+	for(i=0;i<choice.length;i++){
+		for(j=0;j<choice[i].mods.length;j++){
+			if(j==0) sem[i] = "";
+			if(j==choice[i].mods.length-1){
+				sem[i] = sem[i] + choice[i].mods[j]["ModuleCode"];
+			}
+			else{
+				sem[i] = sem[i] + choice[i].mods[j]["ModuleCode"]+" ";
+			}
+		}
+	}
+	var data = sem.join(",");
+	$.post('/plan',{mods: data});
 }

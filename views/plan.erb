@@ -1,4 +1,4 @@
-
+<% if session[:uid] %>
 <div class="carousel slide" id="carousel-year" data-interval="false">
 	<ol class="carousel-indicators">
 		<li data-target="#carousel-year" data-slide-to="0"></li>
@@ -60,5 +60,14 @@
 		<span class="glyphicon glyphicon-chevron-right"></span>
 	</a>
 </div>
+<center><a href="javascript:save()" class="btn btn-primary" role="button" id="save-plan-btn">Save your plan!</a></center>
+<% else %>
+<div class="container">
+	<div class="jumbotron">
+		<center><h3>Sorry, you need to sign in in order to use this feature</h3></center>
+		<center><a href="javascript:login()" role="button" class="btn btn-primary" id="login-message-button">Sign in</a></center>
+	</div>
+</div>
+<% end %>
 
 

@@ -5,6 +5,7 @@ require 'omniauth-openid'
 require 'openid'
 require 'openid/store/filesystem'
 require 'openid/fetchers'
+require './Plan'
 
 configure do
 	enable :sessions
@@ -43,10 +44,33 @@ get '/mod/:mods' do
 end
 
 get '/plan' do
-	@moduleCodes = resultModList.keys
 	@stylepage = "/css/plan-style.css"
-	@javascript = '<script src="/js/typeahead.bundle.js"></script>' + "\n" + '<script src="/js/plan.js"></script>' + "\n"+ '<script src="/js/mod-plan.js"></script>'
-	erb :plan
+	if(session[:uid])
+		@moduleCodes = resultModList.keys
+		@javascript = '<script src="/js/typeahead.bundle.js"></script>' + "\n" + '<script src="/js/plan.js"></script>' + "\n"+ '<script src="/js/mod-plan.js"></script>'
+		erb :plan
+	else
+		erb :plan
+	end
+end
+get '/plan/mods' do
+	if(session[:uid])
+		plan = Plan.get(session[:uid])
+		if(plan)
+			plan.modules
+		end
+	end
+end
+
+post '/plan' do
+	counter = Plan.count(:id => session[:uid])
+	puts counter
+	if counter==0
+		mods = Plan.create(:id => session[:uid], :modules => params[:mods])
+	else
+		mods = Plan.get(session[:uid])
+		mods.update(:modules => params[:mods])
+	end
 end
 
 post '/auth/:name/callback' do
@@ -66,13 +90,3 @@ not_found do
 	status 404
 	erb :not_found
 end
-
-#
-#helper do
-#	def getDetails(moduleCode)
-#		@details = resultModDetails.find do |x|
-#			x["ModuleCode"]==moduleCode
-#		end
-#		return @details
-#	end
-#end

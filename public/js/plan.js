@@ -1,5 +1,13 @@
-
 $(document).ready(function() {
+	$.get('/plan/mods',function(data){
+		var sem = data.split(",");
+		for(i=0; i<sem.length; i++){
+			var mods = sem[i].split(" ");
+			for(j=0;j<mods.length;j++){
+				addModules(i+1, mods[j]);
+			}
+		}
+	});
 	var engine = new Bloodhound({
 		datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
 		queryTokenizer: Bloodhound.tokenizers.whitespace,

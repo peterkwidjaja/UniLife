@@ -1,42 +1,16 @@
-class Modules
+require 'dm-core'
+require 'dm-migrations'
 
-	def initialize(code, title, desc, credit, workload, preclusion, prereq)
-		@code = code
-		@title = title
-		@description = desc
-		@credit = credit
-		@workload = workload
-		@preclusion = preclusion
-		@prereq = prereq
-	end
-
-	public
-	def getCode
-		@code
-	end
-
-	def getTitle
-		@title
-	end
-
-	def getDesc
-		@description
-	end
-
-	def getCredit
-		@credit
-	end
-
-	def getWorkload
-		@workload
-	end
-
-	def getPreclusion
-		@preclusion
-	end
-
-	def getPrereq
-		@prereq
-	end
-	
+DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/database.db")
+class Plan
+	include DataMapper::Resource
+	property :id, String
+	property :sem1, String
+	property :sem2, String
+	property :sem3, String
+	property :sem4, String
+	property :sem5, String
+	property :sem6, String
+	property :sem8, String
 end
+DataMapper.finalize
