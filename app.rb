@@ -1,6 +1,15 @@
 require 'sinatra'
 require 'rubygems'
 require 'json'
+require 'omniauth-openid'
+require 'openid'
+require 'openid/store/filesystem'
+require 'openid/fetchers'
+
+configure do
+	enable :sessions
+	use OmniAuth::Strategies::OpenID, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'nus', :identifier => 'https://openid.nus.edu.sg/'
+end
 
 modList=File.read('public/moduleList.json')
 resultModList = JSON.parse(modList)
@@ -38,6 +47,19 @@ get '/plan' do
 	@stylepage = "/css/plan-style.css"
 	@javascript = '<script src="/js/typeahead.bundle.js"></script>' + "\n" + '<script src="/js/plan.js"></script>' + "\n"+ '<script src="/js/mod-plan.js"></script>'
 	erb :plan
+end
+
+post '/auth/:name/callback' do
+	auth = request.env['omniauth.auth']
+	session[:uid] = auth.uid
+	session[:matric] = auth.info.nickname
+	session[:name] = auth.info.name
+	session[:email] = auth.info.email
+	redirect to('/')
+end
+
+post '/logout' do
+	session.clear
 end
 
 not_found do

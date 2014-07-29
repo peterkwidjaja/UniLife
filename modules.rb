@@ -18,4 +18,25 @@ class Modules
 	def getTitle
 		@title
 	end
+
+	def getDesc
+		@description
+	end
+
+	def getCredit
+		@credit
+	end
+
+	def getWorkload
+		@workload
+	end
+
+	def getPreclusion
+		@preclusion
+	end
+
+	def getPrereq
+		@prereq
+	end
+	
 end
