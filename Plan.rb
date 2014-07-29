@@ -1,7 +1,7 @@
 require 'dm-core'
 require 'dm-migrations'
 require 'dm-aggregates'
-
+require 'sinatra'
 
 configure :development do
 	DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/database.db")
