@@ -9,6 +9,7 @@ require './Plan'
 
 configure do
 	enable :sessions
+	set :session_secret, ENV['SESSION_SECRET'] ||= 'super secret'
 	use OmniAuth::Strategies::OpenID, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'nus', :identifier => 'https://openid.nus.edu.sg/'
 end
 
