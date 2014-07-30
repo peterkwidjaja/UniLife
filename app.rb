@@ -54,7 +54,6 @@ end
 get '/plan' do
 	@stylepage = "/css/plan-style.css"
 	if(session[:uid])
-		@moduleCodes = resultModList.keys
 		@javascript = '<script src="/js/typeahead.bundle.js"></script>' + "\n" + '<script src="/js/plan.js"></script>' + "\n"+ '<script src="/js/mod-plan.js"></script>'
 		erb :plan
 	else
@@ -87,7 +86,7 @@ post '/auth/:name/callback' do
 	session[:matric] = auth.info.nickname
 	session[:name] = auth.info.name
 	session[:email] = auth.info.email
-	redirect to('/')
+	redirect to('/plan')
 end
 
 post '/logout' do
