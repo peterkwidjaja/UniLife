@@ -17,8 +17,8 @@ $(document).ready(function() {
 			filter: function(list) {
 				//var array = $.makeArray(list);
 				//alert(Object.keys(list));
-				return $.map(list, function(val, keys) { 
-					var concat = keys+" : "+val;
+				return $.map(list, function(arr, index) { 
+					var concat = arr["ModuleCode"]+" : "+arr["ModuleTitle"];
 					return { value: concat }; });
 			}
 		}

@@ -22,7 +22,6 @@ for (i=0; i<8; i++){
 	choice[i] = new ModuleSemester();
 }
 function addModules(sem, module){
-	//lert(module);
 	$.get("/mod/"+ module, function(data){
 		choice[sem-1].addMod(data);
 		$('#content-sem'+sem).append('<tr><td>'+data["ModuleCode"]+'</td><td>'+data["ModuleTitle"]+'</td><td><a href="#" title="remove" class="remove-button"><span class="glyphicon glyphicon-remove-sign" style="color: #000000;"></span></a></td></tr>');
