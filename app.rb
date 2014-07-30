@@ -23,9 +23,20 @@ get '/' do
 end
 
 get '/modules' do
-	@result = resultModList
 	@stylepage="/css/module-style.css"
-	erb :module
+	@modules = params[:module]
+	#puts @result
+	if(@modules)
+		puts @modules
+		@result = resultModList.select do |obj|
+			obj["ModuleCode"].downcase.include?@modules.downcase or obj["ModuleTitle"].downcase.include?@modules.downcase
+		end
+		
+		erb :module
+	else
+		erb :module
+	end
+	
 	
 end
 
