@@ -14,7 +14,7 @@ end
 
 modList=File.read('public/moduleList.json')
 resultModList = JSON.parse(modList)
-modDetails = File.read('public/moduleDetails.json')
+modDetails = File.read('public/moduleInformation.json')
 resultModDetails = JSON.parse(modDetails)
 
 get '/' do
@@ -31,13 +31,10 @@ get '/modules' do
 		@result = resultModList.select do |obj|
 			obj["ModuleCode"].downcase.include?@modules.downcase or obj["ModuleTitle"].downcase.include?@modules.downcase
 		end
-		
 		erb :module
 	else
 		erb :module
 	end
-	
-	
 end
 
 get '/mods/:mod' do
