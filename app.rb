@@ -71,7 +71,6 @@ end
 
 post '/plan' do
 	counter = Plan.count(:id => session[:uid])
-	puts counter
 	if counter==0
 		mods = Plan.create(:id => session[:uid], :modules => params[:mods])
 	else

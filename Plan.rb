@@ -12,6 +12,6 @@ end
 class Plan
 	include DataMapper::Resource
 	property :id, String, :key => true
-	property :modules, String
+	property :modules, Text
 end
 DataMapper.finalize
