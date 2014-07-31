@@ -60,4 +60,13 @@ $(document).ready(function() {
 		deleteModule(parseInt(sem), moduleCode);
 		$(this).closest('tr').remove();
 	});
+	$('#save-plan-btn').popover({
+		trigger: 'focus',
+		container: 'body',
+		content: 'Your plan is saved!',
+		placement: 'top',	
+		});
+	$('#save-plan-btn').click(function() {
+		save();
+	})
 });
