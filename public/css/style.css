@@ -15,16 +15,26 @@ body {
 .navbar{
 	background-color: #024873;
 }
-.navbar-nav>li>a{
-	color: #000000;
+.navbar-collapse .navbar-nav>li>a:hover{
+	color: #FF6600;
 }
-.navbar-collapse .navbar-text,.navbar-collapse .navbar-nav li a {
-	color: #F28705;
+.navbar-collapse .navbar-text,.navbar-collapse .navbar-nav>li>a {
+	font-family: 'Lato', sans-serif;
+	color: #FFFFFF;
 }
 .navbar-header .navbar-brand {
 	color: #F28705;
 	font-size: 20px;
-	
+}
+.navbar-brand {
+	font-family: 'Quicksand', sans-serif;
+}
+.navbar-nav>.open>#user-menu{
+	background-color: #F28705;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	    border-radius: 10px;
+	-khtml-border-radius: 10px;
 }
 .nav-container {
 	margin-left: 50px;
@@ -38,4 +48,7 @@ body {
 }
 #login-dialog .modal-dialog{
 	width: 400px;
+}
+.dropdown-menu>li>a {
+	font-family: 'Lato', sans-serif;
 }
