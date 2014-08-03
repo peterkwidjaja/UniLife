@@ -6,11 +6,20 @@ Orange: #F28705
 White: #F0F0F2
 Grey: #565659
 */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(/fonts/9k-RPmcnxYEPm8CNFsH2gg.woff) format('woff') ;
+}
 
 body {
 	background: #F0F0F2;
 	background-image: url('/images/backgrd.png');
 	padding-top: 85px;
+}
+h1, h2 {
+	font-family: 'Arvo', serif;
 }
 .navbar{
 	background-color: #024873;
