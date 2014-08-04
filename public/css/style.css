@@ -62,3 +62,6 @@ h1, h2 {
 .dropdown-menu>li>a {
 	font-family: 'Lato', sans-serif;
 }
+footer {
+	margin-top: 10px;
+}
