@@ -12,7 +12,6 @@ Grey: #565659
   font-weight: 400;
   src: local('Lato Regular'), local('Lato-Regular'), url(/fonts/9k-RPmcnxYEPm8CNFsH2gg.woff) format('woff') ;
 }
-
 body {
 	background: #F0F0F2;
 	background-image: url('/images/backgrd.png');
@@ -47,11 +46,8 @@ h1, h2 {
 	-khtml-border-radius: 10px;
 }
 .nav-container {
-	/*margin-left: 50px;
-	margin-right: 50px; */
 	padding-top: 5px;
 	padding-bottom: 5px;
-	/*width: auto;*/
 }
 #sign-in-bar {
 	font-size: 16px;

@@ -1,7 +1,3 @@
-#navigation {
-	margin-top: 175px;
-	margin-bottom: 20px;
-}
 .container.carousel-container {
   padding-left: 5px;
   padding-right: 5px;
@@ -14,24 +10,11 @@
 	background-color: #CBFF48;
 	color: #565659;
 }
-
-#dropdown1 {
-	background-color: #565659;
-	margin-left: 10px;
-	color: #F28705;
-}
-.dropdown-menu {
-	background-color: #565659;
-	width: auto;
-}
 .item{
 	padding-bottom: 50px;
 }
 .carousel-caption{
 	color: #000000;
-}
-li>a[role="menuitem"] {
-	color: #F28705;
 }
 .module-input {
   width: 100%;
