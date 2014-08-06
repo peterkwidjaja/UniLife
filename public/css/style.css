@@ -52,9 +52,6 @@ h1, h2 {
 #sign-in-bar {
 	font-size: 16px;
 }
-#login-dialog .modal-dialog{
-	width: 400px;
-}
 .dropdown-menu>li>a {
 	font-family: 'Lato', sans-serif;
 }

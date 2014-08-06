@@ -62,3 +62,10 @@
   outline: 0;
   background-color: #F28705;
 }
+
+tr>td>a{
+  color: #FFFFFF;
+}
+tr>td>a:hover{
+  color: #F26101;
+}

@@ -50,19 +50,20 @@
 	</div>
 	
 	<%= yield%>
-	<div class="modal fade" id="login-dialog" role="dialog" tabindex="-1" aria-labelledby="title" aria-hidden="true" >
-	    <div class="modal-dialog">
+
+	<div class="modal fade" id="mainModal" role="dialog" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true" >
+	    <div class="modal-dialog modal-sm">
 	        <div class="modal-content">
 	            <div class="modal-header">
 	                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-	                <h4 class="modal-title" id="login-title"></h4>
+	                <h4 class="modal-title" id="modalTitle"></h4>
 	            </div>
-	            <div class="modal-body" id="login-body">
-	                
+	            <div class="modal-body" id="modalBody"> 
 	            </div>
 	        </div>
 	    </div>  
 	</div>
+
 	<footer>
 		<div class="container text-center" style="color: #000000">
 			<small><b>NUS Orbital Programme</b></small>

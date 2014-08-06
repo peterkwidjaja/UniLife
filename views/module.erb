@@ -24,28 +24,28 @@
                     <% count += 1 %>
                     <% if count%2==1 %>
                     <tr style="background-color: #5B9ED9;">
-                        <% else %>
-                        <tr>
-                            <% end %>
-                            <td><%= count %></td>
-                            <td><a href="javascript:showDetails('<%= mod["ModuleCode"] %>')"><%= mod["ModuleCode"] %></a></td>
-                            <td><%= mod["ModuleTitle"] %></td>
-                        </tr>
+                    <% else %>
+                    <tr>
                         <% end %>
+                        <td><%= count %></td>
+                        <td><a href="javascript:showDetails('<%= mod["ModuleCode"] %>')"><%= mod["ModuleCode"] %></a></td>
+                        <td><%= mod["ModuleTitle"] %></td>
+                    </tr>
+                    <% end %>
 
                         <!-- script for new popup window -->
-                        <script language="javascript">
+                    <script language="javascript">
                         function popup(url) {
                             var w = 700, h = 600;
                             var left = (screen.width) ? (screen.width-w)/2 : 0;
                             var top = (screen.height) ? (screen.height-h)/2 : 0;
                             window.open(url, "_blank", "width="+w+",height="+h+",left="+left+",top="+top+",scrollbars=yes");
                         }       
-                        </script>
-                    </table>
-                </center>
-                
-                <script language="javascript">
+                    </script>
+                </table>
+            </center>
+            
+            <script language="javascript">
                 function showDetails(moduleCode) {
                     $.get("/mod/"+ moduleCode, function(data){
                         emptyDetails();
@@ -84,26 +84,26 @@
                     $('#modulePreclus').empty();
                     $('#moduleSemester').empty();
                 }
-                </script>
-                <% end %>
-            </div>
+            </script>
+            <% end %>
         </div>
     </div>
-    <div class="modal fade" id="moduleDetails" role="dialog" tabindex="-1" aria-labelledby="moduleTitle" aria-hidden="true" >
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="moduleTitle"></h4>
-                </div>
-                <div class="modal-body">
-                    <div id="moduleDescription">a</div>
-                    <div id="moduleCredit">a</div>
-                    <div id="moduleWorkload">a</div>
-                    <div id="modulePrereq">a</div>
-                    <div id="modulePreclus">a</div>
-                    <div id="moduleSemester">a</div>
-                </div>
+</div>
+<div class="modal fade" id="moduleDetails" role="dialog" tabindex="-1" aria-labelledby="moduleTitle" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="moduleTitle"></h4>
             </div>
-        </div>  
-    </div>
+            <div class="modal-body">
+                <div id="moduleDescription">a</div>
+                <div id="moduleCredit">a</div>
+                <div id="moduleWorkload">a</div>
+                <div id="modulePrereq">a</div>
+                <div id="modulePreclus">a</div>
+                <div id="moduleSemester">a</div>
+            </div>
+        </div>
+    </div>  
+</div>
