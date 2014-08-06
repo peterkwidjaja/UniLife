@@ -3,11 +3,11 @@
   padding-right: 5px;
 }
 .jumbotron:nth-child(odd){
-	background-color: #00ADA9;
+	background-color: #A32500;
 	color: #FFFFFF;
 }
 .jumbotron:nth-child(even){
-	background-color: #CBFF48;
+	background-color: #CAF200;
 	color: #565659;
 }
 .item{
@@ -64,8 +64,16 @@
 }
 
 tr>td>a{
-  color: #FFFFFF;
+  color: #F26101;
+  font-weight: bold;
 }
 tr>td>a:hover{
   color: #F26101;
+  font-weight: bolder;
+}
+.action-button {
+  font-size: 17px;
+}
+.remove-button {
+  margin-left: 10px;
 }
