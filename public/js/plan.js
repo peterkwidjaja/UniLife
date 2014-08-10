@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$.get('/plan/mods',function(data){
+	$.get('/plan/mods', function(data){
 		var sem = data.split(",");
 		for(i=0; i<sem.length; i++){
 			var mods = sem[i].split(" ");
@@ -51,7 +51,6 @@ $(document).ready(function() {
 	$('.module-input').blur(function(){
 		$(this).val('');
 	});
-
 	$('.sem-table').on('click', '.remove-button', function(){
 		var test = $(this).closest('tr');
 		var moduleCode = $(test).find('td:eq(0)').find('a').html();
