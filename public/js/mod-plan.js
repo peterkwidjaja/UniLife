@@ -2,21 +2,18 @@ function ModuleSemester(){
 	this.mods = [];
 	this.totalMC = 0;
 	this.checkMod = function(mod){
-		var result = false;
 		for(var i=0;i<this.mods.length;i++){
 			if(this.mods[i]["ModuleCode"]==mod){
-				result = true;
-				break;
+				return true;
 			}
 		}
-		return result;
+		return false;
 	}
 }
 ModuleSemester.prototype.addMod = function(mod){
 	this.mods[this.mods.length] = mod;
 	this.totalMC += parseInt(mod["ModuleCredit"]);
 };
-
 ModuleSemester.prototype.delMod = function(mod){
 	var index = 0;
 	for(var i=0;i<this.mods.length;i++){
@@ -28,20 +25,25 @@ ModuleSemester.prototype.delMod = function(mod){
 	this.totalMC -= parseInt(this.mods[index]["ModuleCredit"]);
 	this.mods.splice(index,1);
 };
-
 var choice = [];
 for (var i=0; i<8; i++){
 	choice[i] = new ModuleSemester();
 }
-function checkModules(module){
-	var result = false;
-	for(var i=0;i<8;i++){
-		if(choice[i].checkMod(module)){
-			result = true;
-			break;
+function checkSem(sem, data){
+	for(var i=0; i<data["History"].length;i++){
+		if(sem==data["History"][i]["Semester"]){
+			return true;
 		}
 	}
-	return result;
+	return false;
+}
+function checkModules(module){
+	for(var i=0;i<8;i++){
+		if(choice[i].checkMod(module)){
+			return true;
+		}
+	}
+	return false;
 }
 function addModules(sem, module){
 	if(checkModules(module)){
@@ -49,9 +51,14 @@ function addModules(sem, module){
 	}
 	else{
 		$.get("/mod/"+ module, function(data){
-			choice[sem-1].addMod(data);
-			$('#content-sem'+sem).append('<tr><td><a href="javascript:showDetails('+"'"+data["ModuleCode"]+"'"+')">'+data["ModuleCode"]+'</a></td><td>'+data["ModuleTitle"]+'</td><td class="action-button"><center><a href="#" title="info" class="info-button hidden-xs"><span class="glyphicon glyphicon-info-sign" style="color: #000000;"></span></a><a href="#" title="remove" class="remove-button"><span class="glyphicon glyphicon-remove-sign" style="color: #000000;"></span></a></center></td></tr>');
-			$('#total-credit'+(sem.toString())).html(choice[sem-1].totalMC.toString());
+			if(checkSem(sem, data)){
+				choice[sem-1].addMod(data);
+				$('#content-sem'+sem).append('<tr><td><a href="javascript:showDetails('+"'"+data["ModuleCode"]+"'"+')">'+data["ModuleCode"]+'</a></td><td>'+data["ModuleTitle"]+'</td><td class="action-button"><center><a href="#" title="info" class="info-button hidden-xs"><span class="glyphicon glyphicon-info-sign" style="color: #000000;"></span></a><a href="#" title="remove" class="remove-button"><span class="glyphicon glyphicon-remove-sign" style="color: #000000;"></span></a></center></td></tr>');
+				$('#total-credit'+(sem.toString())).html(choice[sem-1].totalMC.toString());
+			}
+			else{
+				alert(module+" is not available on this semester!");
+			}
 		},"json");
 	}
 }
