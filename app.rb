@@ -54,7 +54,7 @@ end
 get '/plan' do
 	@stylepage = "/css/plan-style.css"
 	if(session[:uid])
-		@javascript = '<script src="/js/typeahead.bundle.js"></script>' + "\n" + '<script src="/js/plan.js"></script>' + "\n"+ '<script src="/js/mod-plan.js"></script>'
+		@javascript = '<script src="/js/typeahead.bundle.min.js"></script>' + "\n" + '<script src="/js/plan.js"></script>' + "\n"+ '<script src="/js/mod-plan.js"></script>'
 		erb :plan
 	else
 		erb :plan
