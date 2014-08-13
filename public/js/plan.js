@@ -45,11 +45,18 @@ $(document).ready(function() {
 			module = module.substring(0,module.indexOf(' '));
 			//alert(module);
 			addModules(parseInt(sem), module);
+			$(this).blur();
 			$(this).val('');
 		}
 	});
-	$('.module-input').blur(function(){
-		$(this).val('');
+	$('.form-group').on('click','.add-button',function(){
+		event.preventDefault();
+		var input = $(this).closest('.form-group');
+		var input2 = $(input).find('.module-input.tt-input');
+		alert($(input2).attr('id'));
+		var e = jQuery.Event('keydown');
+		e.keyCode = 13;
+		$(input2).trigger(e);
 	});
 	$('.sem-table').on('click', '.remove-button', function(){
 		var test = $(this).closest('tr');
