@@ -45,9 +45,11 @@ $(document).ready(function() {
 			module = module.substring(0,module.indexOf(' '));
 			//alert(module);
 			addModules(parseInt(sem), module);
-			$(this).blur();
 			$(this).val('');
 		}
+	});
+	$('.module-input').blur(function(){
+		$(this).val('');
 	});
 	$('.form-group').on('click','.add-button',function(){
 		event.preventDefault();

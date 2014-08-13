@@ -23,15 +23,12 @@
 						<div class="container">
 							<h2>Semester <%= count %></h2>
 							<center>
-								<form role="form-horizontal" id="modules<%= count %>">
+								<form role="form" id="modules<%= count %>">
 									<div class="form-group">
-										<label for="module-sem<%= count %>">Enter Module Code:</label>
-									</div>
-									<div class="form-group">				
-										<div class="col-sm-11">
+										<label for="module-sem<%= count %>">Press Enter to Add Module</label>				
+										<div>
 											<input type="text" class="form-control module-input" placeholder="Add module to this sem" autocomplete="off" id="input-sem<%= count %>">
 										</div>
-										<button class="btn btn-primary add-button col-sm-1" role="button"><i class="fa fa-plus-square"></i></button>
 									</div>
 								</form>
 							</center>
