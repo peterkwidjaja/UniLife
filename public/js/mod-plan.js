@@ -31,7 +31,7 @@ for (var i=0; i<8; i++){
 }
 function checkSem(sem, data){
 	for(var i=0; i<data["History"].length;i++){
-		if((sem%2)+1==data["History"][i]["Semester"]){
+		if(((sem+1)%2)+1==data["History"][i]["Semester"]){
 			return true;
 		}
 	}
