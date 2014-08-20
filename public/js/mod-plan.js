@@ -45,6 +45,45 @@ function checkModules(module){
 	}
 	return false;
 }
+function checkPrereq(sem, prereq, type){
+	console.log(prereq);
+	if(prereq[" and "]){
+		return checkPrereq(sem, prereq[" and "], "and");
+	}
+	else if(prereq[" or "]){
+		return checkPrereq(sem, prereq[" or "], "or");
+	}
+	else if(prereq instanceof Array){		
+		if(type=="and"){
+			//var flag = 0;
+			console.log("test");
+			for(var i=0; i<prereq.length; i++){
+				if(!checkPrereq(sem,prereq[i],"and")){
+					return false;
+				}
+			}
+			return true;
+		}
+		else if(type=="or"){
+			for(var i=0; i<prereq.length; i++){
+				if(checkPrereq(sem,prereq[i],"or")){
+					return true;
+				}
+			}
+			return false;
+		}
+	}
+	else{
+		console.log(prereq);
+		for(var i=sem-1; i>=0; i--){
+			if(choice[i].checkMod(prereq)){
+
+				return true;
+			}
+		}
+		return false;
+	}
+}
 function addModules(sem, module){
 	if(checkModules(module)){
 		alert(module+" is already in your plan!");
@@ -52,9 +91,20 @@ function addModules(sem, module){
 	else{
 		$.get("/mod/"+ module, function(data){
 			if(checkSem(sem, data)){
-				choice[sem-1].addMod(data);
-				$('#content-sem'+sem).append('<tr><td><a href="javascript:showDetails('+"'"+data["ModuleCode"]+"'"+')">'+data["ModuleCode"]+'</a></td><td>'+data["ModuleTitle"]+'</td><td class="action-button"><center><a href="#" title="info" class="info-button hidden-xs"><span class="glyphicon glyphicon-info-sign" style="color: #000000;"></span></a><a href="#" title="remove" class="remove-button"><span class="glyphicon glyphicon-remove-sign" style="color: #000000;"></span></a></center></td></tr>');
-				$('#total-credit'+(sem.toString())).html(choice[sem-1].totalMC.toString());
+				var prereq = true;
+				if(data["ParsedPrerequisite"]){
+					prereq = checkPrereq(sem,data["ParsedPrerequisite"],"and");
+				}
+
+				if(prereq){
+					choice[sem-1].addMod(data);
+					$('#content-sem'+sem).append('<tr><td><a href="javascript:showDetails('+"'"+data["ModuleCode"]+"'"+')">'+data["ModuleCode"]+'</a></td><td>'+data["ModuleTitle"]+'</td><td class="action-button"><center><a href="#" title="info" class="info-button hidden-xs"><span class="glyphicon glyphicon-info-sign" style="color: #000000;"></span></a><a href="#" title="remove" class="remove-button"><span class="glyphicon glyphicon-remove-sign" style="color: #000000;"></span></a></center></td></tr>');
+					$('#total-credit'+(sem.toString())).html(choice[sem-1].totalMC.toString());
+				}
+				else{
+					alert("Please check whether you have satisfied the prerequisite for this module!");
+				}
+				
 			}
 			else{
 				alert(module+" is not available on this semester!");

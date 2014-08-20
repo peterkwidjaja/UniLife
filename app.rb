@@ -14,7 +14,7 @@ end
 
 modList=File.read('public/moduleList.json')
 resultModList = JSON.parse(modList)
-modDetails = File.read('public/moduleInformation.json')
+modDetails = File.read('moduleInformation.json')
 resultModDetails = JSON.parse(modDetails)
 
 get '/' do
