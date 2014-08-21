@@ -81,5 +81,5 @@ $(document).ready(function() {
 		});
 	$('#save-plan-btn').click(function() {
 		save();
-	})
+	});
 });

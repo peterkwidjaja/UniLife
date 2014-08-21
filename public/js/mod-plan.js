@@ -46,7 +46,6 @@ function checkModules(module){
 	return false;
 }
 function checkPrereq(sem, prereq, type){
-	console.log(prereq);
 	if(prereq[" and "]){
 		return checkPrereq(sem, prereq[" and "], "and");
 	}
@@ -84,6 +83,16 @@ function checkPrereq(sem, prereq, type){
 		return false;
 	}
 }
+function checkPreclusion(preclusion){
+	for(var i=0;i<preclusion.length;i++){
+		for(var j=0;j<8;j++){
+			if(choice[j].checkMod(preclusion[i])){
+				return false;
+			}
+		}
+	}
+	return true;
+}
 function addModules(sem, module){
 	if(checkModules(module)){
 		alert(module+" is already in your plan!");
@@ -92,25 +101,40 @@ function addModules(sem, module){
 		$.get("/mod/"+ module, function(data){
 			if(checkSem(sem, data)){
 				var prereq = true;
+				var preclus = true;
 				if(data["ParsedPrerequisite"]){
 					prereq = checkPrereq(sem,data["ParsedPrerequisite"],"and");
 				}
-
-				if(prereq){
+				if(data["ParsedPreclusion"]){
+					preclus = checkPreclusion(data["ParsedPreclusion"]);
+				}
+				if(!preclus){
+					addWarning();
+					$('#warning').append('<strong>Please check whether you have satisfied the preclusion for <a class="alert-link" href="javascript:showDetails('+"'"+data["ModuleCode"]+"'"+')">'+data["ModuleCode"]+'</a>!</strong>');
+				}
+				else if(!prereq){
+					addWarning();
+					$('#warning').append('<strong>Please check whether you have satisfied the prerequisite for <a class="alert-link" href="javascript:showDetails('+"'"+data["ModuleCode"]+"'"+')">'+data["ModuleCode"]+'</a>!</strong>');
+					//alert("Please check whether you have satisfied the prerequisite for "+module+"!");
+				}
+				else{
 					choice[sem-1].addMod(data);
 					$('#content-sem'+sem).append('<tr><td><a href="javascript:showDetails('+"'"+data["ModuleCode"]+"'"+')">'+data["ModuleCode"]+'</a></td><td>'+data["ModuleTitle"]+'</td><td class="action-button"><center><a href="#" title="info" class="info-button hidden-xs"><span class="glyphicon glyphicon-info-sign" style="color: #000000;"></span></a><a href="#" title="remove" class="remove-button"><span class="glyphicon glyphicon-remove-sign" style="color: #000000;"></span></a></center></td></tr>');
 					$('#total-credit'+(sem.toString())).html(choice[sem-1].totalMC.toString());
 				}
-				else{
-					alert("Please check whether you have satisfied the prerequisite for "+module+"!");
-				}
-				
 			}
 			else{
 				alert(module+" is not available on this semester!");
 			}
 		},"json");
 	}
+}
+function addWarning(){
+	if( $('.alert').length){
+		$('.alert').alert('close');
+	}
+	console.log("test123123");
+	$('#alert-container').append('<div class="alert alert-danger alert-dismissible" role="alert" ><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><span id="warning"></span></div>');
 }
 function deleteModule(sem, module){
 	choice[sem-1].delMod(module);
