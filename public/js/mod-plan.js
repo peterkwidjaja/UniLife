@@ -102,7 +102,7 @@ function addModules(sem, module){
 					$('#total-credit'+(sem.toString())).html(choice[sem-1].totalMC.toString());
 				}
 				else{
-					alert("Please check whether you have satisfied the prerequisite for this module!");
+					alert("Please check whether you have satisfied the prerequisite for "+module+"!");
 				}
 				
 			}
