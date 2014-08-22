@@ -27,3 +27,17 @@
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
+.home-icon {
+	font-family: 'Quicksand', sans-serif;
+}
+.home-img {
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+.home-img img{
+	
+	width: auto;
+}
+.icon-row {
+	margin-top: 30px;
+}
