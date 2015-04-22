@@ -3,7 +3,14 @@ function ModuleSemester() {
     this.totalMC = 0;
     this.checkMod = function(mod) {
         for (var i = 0; i < this.mods.length; i++) {
-            if (this.mods[i]["ModuleCode"] == mod) {
+            var code = this.mods[i]["ModuleCode"];
+            while (code.charCodeAt(code.length - 1) >= 65) {
+                code = code.substring(0, code.length - 1);
+            }
+            while (mod.charCodeAt(code.length - 1) >= 65) {
+                mod = mod.substring(0, code.length - 1);
+            }
+            if (code == mod) {
                 return true;
             }
         }
