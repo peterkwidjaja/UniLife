@@ -2,14 +2,18 @@ function ModuleSemester() {
     this.mods = [];
     this.totalMC = 0;
     this.checkMod = function(mod) {
+        //Cut the postfix letter coding of the modules when checking for existence
+        while (mod.charCodeAt(code.length - 1) >= 65) {
+            mod = mod.substring(0, code.length - 1);
+        }
         for (var i = 0; i < this.mods.length; i++) {
             var code = this.mods[i]["ModuleCode"];
+
+            //Cut the postfix letter coding of the modules when checking for existence
             while (code.charCodeAt(code.length - 1) >= 65) {
                 code = code.substring(0, code.length - 1);
             }
-            while (mod.charCodeAt(code.length - 1) >= 65) {
-                mod = mod.substring(0, code.length - 1);
-            }
+            
             if (code == mod) {
                 return true;
             }
@@ -25,13 +29,15 @@ ModuleSemester.prototype.delMod = function(mod) {
     var index = 0;
     for (var i = 0; i < this.mods.length; i++) {
         if (this.mods[i]["ModuleCode"] == mod) {
-            index = i;
-            break;
+            index = i
+;            break;
         }
     }
     this.totalMC -= parseInt(this.mods[index]["ModuleCredit"]);
     this.mods.splice(index, 1);
 };
+
+//Initialize 8 Semesters of ModuleSemester array
 var choice = [];
 for (var i = 0; i < 8; i++) {
     choice[i] = new ModuleSemester();
@@ -62,8 +68,7 @@ function checkPrereq(sem, prereq, type) {
         return checkPrereq(sem, prereq[" or "], "or");
     } else if (prereq instanceof Array) {
         if (type == "and") {
-            //var flag = 0;
-            console.log("test");
+            console.log("Checking AND prerequisite");
             for (var i = 0; i < prereq.length; i++) {
                 if (!checkPrereq(sem, prereq[i], "and")) {
                     return false;
@@ -71,6 +76,7 @@ function checkPrereq(sem, prereq, type) {
             }
             return true;
         } else if (type == "or") {
+            console.log("Checking OR prerequisite");
             for (var i = 0; i < prereq.length; i++) {
                 if (checkPrereq(sem, prereq[i], "or")) {
                     return true;
@@ -81,8 +87,8 @@ function checkPrereq(sem, prereq, type) {
     } else {
         console.log(prereq);
         for (var i = sem - 1; i >= 0; i--) {
+            console.log("checking sem "+i);
             if (choice[i].checkMod(prereq)) {
-
                 return true;
             }
         }
@@ -101,6 +107,7 @@ function checkPreclusion(preclusion) {
     return true;
 }
 
+//Function to add modules into the plan
 function addModules(sem, module) {
     if (checkModules(module)) {
         alert(module + " is already in your plan!");
@@ -138,7 +145,6 @@ function addWarning() {
     if ($('.alert').length) {
         $('.alert').alert('close');
     }
-    console.log("test123123");
     $('#alert-container').append('<div class="alert alert-danger alert-dismissible" role="alert" ><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><span id="warning"></span></div>');
 }
 
