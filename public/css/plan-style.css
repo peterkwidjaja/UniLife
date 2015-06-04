@@ -3,11 +3,11 @@
   padding-right: 5px;
 }
 .jumbotron:nth-child(odd){
-	background-color: #2C3546;
+	background-color: #031132;
 	color: #FFFFFF;
 }
 .jumbotron:nth-child(even){
-	background-color: #F7F7F7;
+	background-color: #DC9917;
 	color: #565659;
 }
 .item{
@@ -62,10 +62,19 @@
   outline: 0;
   background-color: #F28705;
 }
-
+/*
 tr>td>a{
-  color: #F26101;
+  color: #DC9917;
   font-weight: bold;
+}
+*/
+.module-code0 {
+  color: #DC9917;
+  font-weight: bold;
+}
+.module-code1 {
+  color: #031132;
+  font-weight: bold;  
 }
 tr>td>a:hover{
   color: #F26101;
