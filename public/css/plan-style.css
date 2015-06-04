@@ -3,7 +3,7 @@
   padding-right: 5px;
 }
 .jumbotron:nth-child(odd){
-	background-color: #A32500;
+	background-color: #2C3546;
 	color: #FFFFFF;
 }
 .jumbotron:nth-child(even){
