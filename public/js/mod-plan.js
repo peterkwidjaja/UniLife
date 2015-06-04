@@ -126,7 +126,7 @@ function addModules(sem, module) {
                     $('#warning').append('<strong>Please check whether you have satisfied the prerequisite for <a class="alert-link" href="javascript:showDetails(' + "'" + data["ModuleCode"] + "'" + ')">' + data["ModuleCode"] + '</a>!</strong>');
                 } else {
                     choice[sem - 1].addMod(data);
-                    $('#content-sem' + sem).append('<tr><td><a href="javascript:showDetails(' + "'" + data["ModuleCode"] + "'" + ')" class="module-code'+(sem%2)+'">' + data["ModuleCode"] + '</a></td><td>' + data["ModuleTitle"] + '</td><td class="action-button"><center><a href="#" title="info" class="info-button hidden-xs"><span class="glyphicon glyphicon-info-sign" style="color: #000000;"></span></a><a href="#" title="remove" class="remove-button"><span class="glyphicon glyphicon-remove-sign" style="color: #000000;"></span></a></center></td></tr>');
+                    $('#content-sem' + sem).append('<tr><td><a href="javascript:showDetails(' + "'" + data["ModuleCode"] + "'" + ')" class="module-code'+(sem%2)+'">' + data["ModuleCode"] + '</a></td><td>' + data["ModuleTitle"] + '</td><td class="action-button module-button'+sem%2+'"><center><a href="#" title="info" class="info-button hidden-xs "><span class="glyphicon glyphicon-info-sign" style="color: #000000;"></span></a><a href="#" title="remove" class="remove-button module-button'+sem%2+'"><span class="glyphicon glyphicon-remove-sign" style="color: #000000;"></span></a></center></td></tr>');
                     $('#total-credit' + (sem.toString())).html(choice[sem - 1].totalMC.toString());
                 }
             } else {

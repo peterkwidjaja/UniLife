@@ -76,8 +76,12 @@ tr>td>a{
   color: #DC9917;
   font-weight: bold;  
 }
-tr>td>a:hover{
-  color: #F26101;
+.module-code0:hover{
+  color: #031132;
+  font-weight: bolder;
+}
+.module-code1:hover{
+  color: #DC9917;
   font-weight: bolder;
 }
 .action-button {
@@ -85,4 +89,10 @@ tr>td>a:hover{
 }
 .remove-button {
   margin-left: 10px;
+}
+.module-button0 {
+  color: #031132;
+}
+.module-button1 {
+  color: #DC9917;
 }
