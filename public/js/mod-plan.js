@@ -68,7 +68,6 @@ function checkPrereq(sem, prereq, type) {
         return checkPrereq(sem, prereq[" or "], "or");
     } else if (prereq instanceof Array) {
         if (type == "and") {
-            console.log("Checking AND prerequisite");
             for (var i = 0; i < prereq.length; i++) {
                 if (!checkPrereq(sem, prereq[i], "and")) {
                     return false;
@@ -76,7 +75,6 @@ function checkPrereq(sem, prereq, type) {
             }
             return true;
         } else if (type == "or") {
-            console.log("Checking OR prerequisite");
             for (var i = 0; i < prereq.length; i++) {
                 if (checkPrereq(sem, prereq[i], "or")) {
                     return true;
@@ -85,9 +83,7 @@ function checkPrereq(sem, prereq, type) {
             return false;
         }
     } else {
-        console.log(prereq);
         for (var i = sem - 1; i >= 0; i--) {
-            console.log("checking sem "+i);
             if (choice[i].checkMod(prereq)) {
                 return true;
             }
@@ -128,7 +124,6 @@ function addModules(sem, module) {
                 } else if (!prereq) {
                     addWarning();
                     $('#warning').append('<strong>Please check whether you have satisfied the prerequisite for <a class="alert-link" href="javascript:showDetails(' + "'" + data["ModuleCode"] + "'" + ')">' + data["ModuleCode"] + '</a>!</strong>');
-                    //alert("Please check whether you have satisfied the prerequisite for "+module+"!");
                 } else {
                     choice[sem - 1].addMod(data);
                     $('#content-sem' + sem).append('<tr><td><a href="javascript:showDetails(' + "'" + data["ModuleCode"] + "'" + ')">' + data["ModuleCode"] + '</a></td><td>' + data["ModuleTitle"] + '</td><td class="action-button"><center><a href="#" title="info" class="info-button hidden-xs"><span class="glyphicon glyphicon-info-sign" style="color: #000000;"></span></a><a href="#" title="remove" class="remove-button"><span class="glyphicon glyphicon-remove-sign" style="color: #000000;"></span></a></center></td></tr>');
@@ -176,17 +171,17 @@ function showDetails(moduleCode) {
         emptyDetails();
         $('#moduleTitle').append(moduleCode + " - " + data["ModuleTitle"]);
         $('#moduleDescription').append("<p>" + data["ModuleDescription"] + "</p>");
-        $('#moduleCredit').append("<p>Module Credit:  " + data["ModuleCredit"] + "</p>");
-        $('#moduleWorkload').append("<p>Workload:  " + data["Workload"] + "</p>");
+        $('#moduleCredit').append("<p><b>Module Credit:</b>  " + data["ModuleCredit"] + "</p>");
+        $('#moduleWorkload').append("<p><b>Workload:</b>  " + data["Workload"] + "</p>");
         if (data["Prerequisite"])
-            $('#modulePrereq').append("<p>Prerequisite:  " + data["Prerequisite"] + "</p>");
+            $('#modulePrereq').append("<p><b>Prerequisite:</b> " + data["Prerequisite"] + "</p>");
         else
-            $('#modulePrereq').append("<p>Prerequisite:  Nil</p>");
+            $('#modulePrereq').append("<p><b>Prerequisite:</b>  Nil</p>");
         if (data["Preclusion"])
-            $('#modulePreclus').append("<p>Preclusion:  " + data["Preclusion"] + "</p>");
+            $('#modulePreclus').append("<p><b>Preclusion:</b>  " + data["Preclusion"] + "</p>");
         else
-            $('#modulePreclus').append("<p>Preclusion:  Nil</p>");
-        var html = "<p>Semester:  ";
+            $('#modulePreclus').append("<p><b>Preclusion:</b>  Nil</p>");
+        var html = "<p><b>Semester:</b>  ";
         for (var i = 0; i < data["History"].length; i++) {
             var temp = data["History"][i]["Semester"];
             var sem = temp.toString();
