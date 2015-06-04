@@ -3,8 +3,8 @@ function ModuleSemester() {
     this.totalMC = 0;
     this.checkMod = function(mod) {
         //Cut the postfix letter coding of the modules when checking for existence
-        while (mod.charCodeAt(code.length - 1) >= 65) {
-            mod = mod.substring(0, code.length - 1);
+        while (mod.charCodeAt(mod.length - 1) >= 65) {
+            mod = mod.substring(0, mod.length - 1);
         }
         for (var i = 0; i < this.mods.length; i++) {
             var code = this.mods[i]["ModuleCode"];
