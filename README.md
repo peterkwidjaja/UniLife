@@ -29,16 +29,19 @@ You need sqlite source: [SQLite](https://www.sqlite.org/download.html)
 2. Build the source file: Assume sqlite is extracted to C:\Projects\
 
 ```bash
-C:\Projects\sqlite-autoconf-3080803> C:\Ruby\DevKit\devkitvars.bat
+C:\Projects\<sqlite directory>> C:\Ruby\DevKit\devkitvars.bat
 C:Adding the DevKit to PATH...
-C:\projects\sqlite-autoconf-3080803>sh
+C:\Projects\<sqlite directory>>sh
 sh-3.1$./configure
 ...
-C:\projects\sqlite-autoconf-3080803>make
+C:\Projects\<sqlite directory>>make
 ```
 
-3. Run the following Line 
-`$ gem install dm-sqlite-adapter -- --with-sqlite3-lib=c:\Projects\sqlite-autoconf-3080803\.libs --with-sqlite3-include=c:\Projects\sqlite-autoconf-3080803`
+3. Run the following line
+
+```bash
+$ gem install dm-sqlite-adapter -- --with-sqlite3-lib=c:\Projects\sqlite-autoconf-3080803\.libs --with-sqlite3-include=c:\Projects\sqlite-autoconf-3080803
+```
 
 ##Reference Used
 
