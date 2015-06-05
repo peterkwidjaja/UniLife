@@ -4,32 +4,43 @@
 
 ##Overview
  
-UniLife Planner serves as a compact and simple solution for NUS undergraduates in planning their courses throughout the 3 or 4 years. It aims to ensure that undergraduates do not miss out on modules they want and end up extending their term. Unlike other existing planners, we are planning to integrate social media such as Facebook into our web apps to unleash the power of collaborative information.
+UniLife Planner serves as a compact and simple solution for NUS undergraduates in planning their courses throughout the 3 or 4 years. It aims to ensure that undergraduates do not miss out on modules they want and end up extending their term. Its features include many checkers that help to verify your module. Your plan is stored on cloud which means that you can access it anywhere. Our web is designed to be responsive to make sure that you can still comfortably navigate using your smartphones.
 
-We are aiming for Project Gemini.
+##Installation
 
-Our Ignition Slide:
-<img src="https://d1b10bmlvqabco.cloudfront.net/attach/hs94ucsxscm1dy/huw8obe9xk34p5/hvwhcp2pc6j5/Lift_Off_Slide.jpg">
- 
-Youtube link to our presentation: http://www.youtube.com/watch?v=_YJRpfyxP4c&amp;feature=share&amp;t=1h17m36s
+Our app is built on Ruby on Sinatra. Thus the first thing you need is [Ruby](https://www.ruby-lang.org/).
 
+Install Bundler:
 
-###1. Ideation
+`$ gem install bundler`
 
-As NUS undergraduates, users has a busy lifestyle thus they wants the user interface to be as interactive and intuitive as possible. Using the apps would not be a hazzle.
+Install Dependencies:
+    
+`$ bundle install`
 
-As NUS is a big university and there are only certain selection of modules that are highly relevant to specific faculty and major, users want the apps to automatically narrow down the selection of modules to avoid confusion.
+####Development
+dm-sqlite-adapter might have problems installing in Windows, so we have to use manual approach.
 
-Users want to have a tailor-made graduation plan be it 3 years, 3.5 years, or 4 years.
- 
-Users want to see who else are planning to take the module at the specified semester. Topping it up with a social media invitation feature to get their peers to take the module would be awesome.
- 
-###2. Planned Features
-<img src="https://d1b10bmlvqabco.cloudfront.net/attach/hs94ucsxscm1dy/huw8obe9xk34p5/hvxkobthplpn/Features_in_Trello.jpg">
+`$ gem install sqlite3`
 
-During this sprint, PAFO is planning to finish the standard feature of the application. The advanced features and further testing will be done during the next sprint onward.
- 
-###3. Reference Used
+You need sqlite source: [SQLite](https://www.sqlite.org/download.html)
+
+1. Extract the file to an installation folder
+2. Build the source file: Assume sqlite is extracted to C:\Projects\
+
+```bash
+C:\Projects\sqlite-autoconf-3080803> C:\Ruby\DevKit\devkitvars.bat
+C:Adding the DevKit to PATH...
+C:\projects\sqlite-autoconf-3080803>sh
+sh-3.1$./configure
+...
+C:\projects\sqlite-autoconf-3080803>make
+```
+
+3. Run the following Line 
+`$ gem install dm-sqlite-adapter -- --with-sqlite3-lib=c:\Projects\sqlite-autoconf-3080803\.libs --with-sqlite3-include=c:\Projects\sqlite-autoconf-3080803`
+
+##Reference Used
 
 For learning Ruby and Web Development[HTML, CSS, etc.]:
 [Codecademy](http://www.codecademy.com)

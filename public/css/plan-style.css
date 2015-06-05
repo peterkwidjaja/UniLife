@@ -4,11 +4,11 @@
 }
 .jumbotron:nth-child(odd){
 	background-color: #031132;
-	color: #FFFFFF;
+	color: #FCFFF5;
 }
 .jumbotron:nth-child(even){
 	background-color: #DC9917;
-	color: #565659;
+	color: #FCFFF5;
 }
 .item{
 	padding-bottom: 50px;
