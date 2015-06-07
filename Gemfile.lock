@@ -92,4 +92,7 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-sqlite-adapter
   omniauth-openid
-  sinatra (~> 1.4.5)
+  sinatra
+
+BUNDLED WITH
+   1.10.3
