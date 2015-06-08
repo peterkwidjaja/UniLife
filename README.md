@@ -19,7 +19,7 @@ Install Dependencies:
 `$ bundle install`
 
 ####Development
-dm-sqlite-adapter might have problems installing in Windows, so we have to use manual approach.
+dm-sqlite-adapter might have problems installing in Windows and/or Ruby x64, so we have to use manual approach.
 
 `$ gem install sqlite3`
 
