@@ -15,13 +15,15 @@ Grey: #565659
 body {
 	background: #F0F0F2;
 	background-image: url('/images/backgrd.png');
-	padding-top: 85px;
+	padding-top: 61px;
+	font-family: 'Molengo', sans-serif;
 }
 h1, h2 {
-	font-family: 'Arvo', serif;
+	font-family: 'Muli', serif;
 }
 .navbar{
 	background-color: #024873;
+	box-shadow: 0 2px 3px 0 rgba(0,0,0,.5);
 }
 .navbar-collapse .navbar-nav>li>a:hover{
 	color: #FF6600;
@@ -29,15 +31,14 @@ h1, h2 {
 .navbar-collapse .navbar-text,.navbar-collapse .navbar-nav>li>a {
 	font-family: 'Lato', sans-serif;
 	color: #FFFFFF;
-	margin-left: 10px;
-}
-.navbar-header .navbar-brand {
-	color: #F28705;
-	font-size: 20px;
+	margin-left: 16px;
 }
 .navbar-brand {
+	color: #F28705;
+	font-size: 25px;
 	font-family: 'Quicksand', sans-serif;
 }
+
 .navbar-nav>.open>#user-menu{
 	background-color: #F28705;
 	-moz-border-radius: 10px;
@@ -52,15 +53,36 @@ h1, h2 {
 #sign-in-bar {
 	font-size: 16px;
 }
+#main-menu{
+	margin-left: 10px;
+}
 .dropdown-menu>li>a {
 	font-family: 'Lato', sans-serif;
 }
 footer {
-	margin-top: 10px;
+	background-color: #4C4C4F;
+	color: #FFFFFF;
+	margin-top: 0px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 #github-link {
 	color: #000000;
 }
 #github-link:hover {
 	color: #428bca;
+}
+@media screen and (max-width: 768px){
+	.navbar-brand{
+		font-size: 20px;
+	}
+	.navbar-toggle{
+		background-color: #F28705;
+	}
+	.navbar-toggle .icon-bar{
+		background-color: #fff;
+	}
+	.navbar-collapse .navbar-text,.navbar-collapse .navbar-nav>li>a {
+		margin-left: 0px;
+	}
 }

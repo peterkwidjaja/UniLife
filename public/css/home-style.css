@@ -1,5 +1,5 @@
 #home{
-	background-color: #565659;
+	background-color: #656569;
 	color: #FFFFFF;
 }
 #started-button {
@@ -35,9 +35,22 @@
 	padding-top: 5px;
 }
 .home-img img{
-	
 	width: auto;
 }
 .icon-row {
-	margin-top: 30px;
+	margin-top: 60px;
+}
+#home p {
+	font-family: 'Molengo', sans-serif;
+	font-size: 32px;
+}
+.jumbotron {
+	padding-top: 80px;
+	padding-bottom: 80px;
+	margin-bottom: 0px;
+}
+@media screen and (max-width: 768px){
+	#home p {
+		font-size: 24px;
+	}
 }
