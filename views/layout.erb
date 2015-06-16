@@ -20,49 +20,50 @@
     <![endif]-->
 </head>
 <body>
-	
-	<div class="navbar navbar-fixed-top" role="navigation" id="navigation_bar">
-		<div class="container nav-container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="/"><b>UniLife Planner</b></a>
-			</div>
-			<div class="collapse navbar-collapse" id="main-menu">
-				<ul class="nav navbar-nav" >
-					<li><a href="/">HOME</a></li>
-					<li><a href="/about">ABOUT</a></li>
-					<li><a href="/modules">MODULES</a></li>
-					<li><a href="/plan">PLAN</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<% if session[:uid] %>
-					<li class="dropdown">
-							<a data-target="#" id="user-menu" data-toggle="dropdown" role="button" class="dropdown-toggle"><%= session[:name] %><span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu" aria-labelledby="user-menu">
-								<li role="presentation"><a href="javascript:logoutModal()" role="menuitem" tabindex="-1">Sign out</a></li>
-							</ul>
-					</li>
-					<% else %>
-					<li><a href="javascript:login()" id="sign-in-bar"><b>Sign In</b></a></li>
-					<% end %>
-				</ul>
-			</div>
-		</div>	
-	</div>
-	<div id="body">
-		<%= yield%>
-	</div>
-	<div id="footer">
-		<div class="container text-center">
-			<b style="color: #FDFDFD; font-size: 20px;">Unilife Planner</b>
-			<p>Peter Kristianto Widjaja &copy; 2015</p>
-			<div>
-				<center><a href="https://github.com/peterkwidjaja/UniLife" id="github-link" target="_blank"><i class="fa fa-github fa-3x"></i></a></center>
+	<div id="wrapper">
+		<div class="navbar navbar-fixed-top" role="navigation" id="navigation_bar">
+			<div class="container nav-container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/"><b>UniLife Planner</b></a>
+				</div>
+				<div class="collapse navbar-collapse" id="main-menu">
+					<ul class="nav navbar-nav" >
+						<li><a href="/">HOME</a></li>
+						<li><a href="/about">ABOUT</a></li>
+						<li><a href="/modules">MODULES</a></li>
+						<li><a href="/plan">PLAN</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<% if session[:uid] %>
+						<li class="dropdown">
+								<a data-target="#" id="user-menu" data-toggle="dropdown" role="button" class="dropdown-toggle"><%= session[:name] %><span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="user-menu">
+									<li role="presentation"><a href="javascript:logoutModal()" role="menuitem" tabindex="-1">Sign out</a></li>
+								</ul>
+						</li>
+						<% else %>
+						<li><a href="javascript:login()" id="sign-in-bar"><b>Sign In</b></a></li>
+						<% end %>
+					</ul>
+				</div>
+			</div>	
+		</div>
+		<div id="body">
+			<%= yield%>
+		</div>
+		<div id="footer">
+			<div class="container text-center">
+				<b style="color: #FDFDFD; font-size: 20px;">Unilife Planner</b>
+				<p>Peter Kristianto Widjaja &copy; 2015</p>
+				<div>
+					<center><a href="https://github.com/peterkwidjaja/UniLife" id="github-link" target="_blank"><i class="fa fa-github fa-3x"></i></a></center>
+				</div>
 			</div>
 		</div>
 	</div>

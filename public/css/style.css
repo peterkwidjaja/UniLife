@@ -12,15 +12,17 @@ Grey: #565659
   font-weight: 400;
   src: local('Lato Regular'), local('Lato-Regular'), url(/fonts/9k-RPmcnxYEPm8CNFsH2gg.woff) format('woff') ;
 }
-body {
+html, body {
 	background: #eee;
-	padding-top: 61px;
 	font-family: 'Molengo', sans-serif;
 	height: 100%;
+}
+#wrapper {
+	min-height: 100%;
 	position: relative;
 }
 #body {
-	min-height: 100%;
+	padding-top: 61px;
 	padding-bottom: 187px;
 }
 h1, h2 {
