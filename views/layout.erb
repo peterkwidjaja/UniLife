@@ -54,8 +54,18 @@
 			</div>
 		</div>	
 	</div>
-	
-	<%= yield%>
+	<div id="body">
+		<%= yield%>
+	</div>
+	<div id="footer">
+		<div class="container text-center">
+			<b style="color: #FDFDFD; font-size: 20px;">Unilife Planner</b>
+			<p>Peter Kristianto Widjaja &copy; 2015</p>
+			<div>
+				<center><a href="https://github.com/peterkwidjaja/UniLife" id="github-link" target="_blank"><i class="fa fa-github fa-3x"></i></a></center>
+			</div>
+		</div>
+	</div>
 
 	<div class="modal fade" id="mainModal" role="dialog" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true" >
 	    <div class="modal-dialog">
@@ -70,15 +80,7 @@
 	    </div>  
 	</div>
 
-	<footer>
-		<div class="container text-center">
-			<small><b>NUS Orbital Programme</b></small>
-			<p>Peter Kristianto Widjaja - 2014</p>
-			<div>
-				<center><a href="https://github.com/peterkwidjaja/UniLife" id="github-link" target="_blank"><i class="fa fa-github fa-3x"></i></a></center>
-			</div>
-		</div>
-	</footer>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script src="/js/login.js"></script>
